@@ -1,0 +1,963 @@
+/* @import url('https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/pretendard.css'); */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --color-primaryPoint: #BB2B2B;
+}
+:root {
+  --color-primaryBg: #FFE8EF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #222222;
+  font-family: 'GangwonEdu_OTFBoldA';
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+body {
+  background: #FEFEFE;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+a:focus {
+  outline: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+@supports (-webkit-appearance:none) {
+input {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+display: none;
+}
+
+input::-webkit-contacts-auto-fill-button {
+visibility: hidden !important;
+display: none !important;
+pointer-events: none !important;
+position: absolute !important;
+right: 0 !important;
+}
+
+input::-webkit-credentials-auto-fill-button {
+visibility: hidden !important;
+display: none !important;
+pointer-events: none !important;
+position: absolute !important;
+right: 0 !important;
+}
+select {
+  appearance: none;
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+.color-picker::-webkit-color-swatch-wrapper {
+padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+border: 2px solid #eee;
+border-radius: 50%;
+}
+
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+img, input, select, textarea, button, label {
+  vertical-align: middle;
+}
+img, fieldset, abbr {
+  border: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* 메뉴 스크롤바 숨기기 */
+/* @layer components {
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+} */
+.scroll-hidden::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.scroll-hidden {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scroll-round::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-round::-webkit-scrollbar-thumb {
+    background-color: rgba(150, 150, 150, 0.3);
+    border-radius: 10px;
+}
+
+.scroll-round::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* @font-face {
+    font-family: 'Pretendard Variable';
+    src: url('https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.woff2') format('woff2');
+    font-weight: 100 900; 
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    /*src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');*/
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    /*src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2'); */
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    /*src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-Light.woff2') format('woff2');*/
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+@supports (-webkit-touch-callout: none) {
+    .Paperlogy-text {
+        font-weight: 10;
+        /* 사파리에서만 폰트 웨이트 낮추기 */
+    }
+}
+
+* {
+    font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+    font-size: clamp(16px, 1vw, 18px);
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: -0.025em
+}
+
+body {
+    color: #292929;
+}
+
+a:focus {
+    outline: none;
+}
+
+a {
+    display: block;
+}
+
+a * {
+    pointer-events: none;
+}
+
+input {
+    -webkit-appearance: none;
+    /* Safari, older iOS */
+    -moz-appearance: none;
+    /* Firefox */
+    appearance: none;
+    /* 표준 */
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Pretendard Variable', sans-serif;
+}
+
+
+
+thead{
+    border-collapse: separate; /* 여기서 중요 */
+    margin-bottom: 10px;
+}
+/* 첫 번째 행의 첫 번째 셀: 위 왼쪽 라운드 */
+tbody tr:first-child td:first-child {
+    border-top-left-radius: 12px;
+}
+
+/* 첫 번째 행의 마지막 셀: 위 오른쪽 라운드 */
+tbody tr:first-child td:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* 마지막 행의 첫 번째 셀: 아래 왼쪽 라운드 */
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+/* 마지막 행의 마지막 셀: 아래 오른쪽 라운드 */
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #FEFEFE;
+}
+tbody tr:nth-child(even) {
+    background-color: #F8F8F8; 
+}
+.paperlogy {
+    font-family: 'Paperlogy', 'Pretendard Variable', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.h1-title {
+    font-size: clamp(24px, 2vw, 32px);
+}
+
+.sub-title {
+    font-size: clamp(20px, 2vw, 23px);
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE, Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.banner-border {
+    border-color: #E7F0FD;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* 모바일 배너 스타일 */
+.mobile-banner {
+    position: fixed;
+    /* 화면에 고정 */
+    top: 64px;
+    /* 헤더 아래로 위치 조정 */
+    left: 0;
+    width: 100%;
+    background-color: #F5F9FF;
+    /* 배경색 */
+    padding: 10px 16px;
+    /* 내부 패딩 */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    /* 그림자 효과 */
+    z-index: 50;
+    /* 헤더 위로 배치 */
+    display: none;
+    /* 기본적으로 숨김 */
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.text-base {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.75rem;
+    /* 28px */
+}
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+/* align-items (세로축 정렬) */
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.items-baseline {
+    align-items: baseline;
+}
+
+.items-stretch {
+    align-items: stretch;
+}
+
+/* justify-content (가로축 정렬) */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+/* margin (m) */
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 0.75rem; }
+.m-4 { margin: 1rem; }
+.m-5 { margin: 1.25rem; }
+.m-6 { margin: 1.5rem; }
+.m-7 { margin: 1.75rem; }
+.m-8 { margin: 2rem; }
+.m-9 { margin: 2.25rem; }
+.m-10 { margin: 2.5rem; }
+.m-11 { margin: 2.75rem; }
+.m-12 { margin: 3rem; }
+
+/* margin-top (mt) */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.25rem; }  /* 4px */
+.mt-2 { margin-top: 0.5rem; }   /* 8px */
+.mt-3 { margin-top: 0.75rem; }  /* 12px */
+.mt-4 { margin-top: 1rem; }     /* 16px */
+.mt-5 { margin-top: 1.25rem; }  /* 20px */
+.mt-6 { margin-top: 1.5rem; }   /* 24px */
+
+/* margin-bottom (mb) */
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-5 { margin-bottom: 1.25rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+
+/* padding 전체 */
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-5 { padding: 1.25rem; }
+.p-6 { padding: 1.5rem; }
+
+/* padding-top (pt) */
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: 0.25rem; }
+.pt-2 { padding-top: 0.5rem; }
+.pt-3 { padding-top: 0.75rem; }
+.pt-4 { padding-top: 1rem; }
+.pt-5 { padding-top: 1.25rem; }
+.pt-6 { padding-top: 1.5rem; }
+
+/* padding-bottom (pb) */
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: 0.25rem; }
+.pb-2 { padding-bottom: 0.5rem; }
+.pb-3 { padding-bottom: 0.75rem; }
+.pb-4 { padding-bottom: 1rem; }
+.pb-5 { padding-bottom: 1.25rem; }
+.pb-6 { padding-bottom: 1.5rem; }
+.pb-7 { padding-bottom: 1.75rem; }   /* 28px */
+.pb-8 { padding-bottom: 2rem; }      /* 32px */
+.pb-9 { padding-bottom: 2.25rem; }   /* 36px */
+.pb-10 { padding-bottom: 2.5rem; }   /* 40px */
+.pb-11 { padding-bottom: 2.75rem; }  /* 44px */
+.pb-12 { padding-bottom: 3rem; }     /* 48px */
+
+/* gap 간격 */
+.gap-0 {gap: 0;}
+.gap-1 {gap: 0.25rem;/* 4px */}
+.gap-2 {gap: 0.5rem;/* 8px */}
+.gap-3 {gap: 0.75rem;/* 12px */}
+.gap-4 {gap: 1rem;/* 16px */}
+.gap-5 {gap: 1.25rem;/* 20px */}
+.gap-6 {gap: 1.5rem;/* 24px */}
+
+/* padding-x (좌우) */
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-1 { padding-left: 0.25rem; padding-right: 0.25rem; } /* 4px */
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }   /* 8px */
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } /* 12px */
+.px-4 { padding-left: 1rem; padding-right: 1rem; }       /* 16px */
+.px-5 { padding-left: 1.25rem; padding-right: 1.25rem; } /* 20px */
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }   /* 24px */
+
+/* padding-y (상하) */
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+
+/* space-x (horizontal gap between siblings) */
+.space-x-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(0 * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(0 * var(--tw-space-x-reverse));
+}
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(0.25rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(0.5rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+}
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(0.75rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+}
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(1rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+}
+.space-x-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(1.25rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+}
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(1.5rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+}
+.space-x-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(1.75rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(1.75rem * var(--tw-space-x-reverse));
+}
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(2rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(2rem * var(--tw-space-x-reverse));
+}
+.space-x-9 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(2.25rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(2.25rem * var(--tw-space-x-reverse));
+}
+.space-x-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(2.5rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+}
+.space-x-11 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(2.75rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(2.75rem * var(--tw-space-x-reverse));
+}
+.space-x-12 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-left: calc(3rem * (1 - var(--tw-space-x-reverse)));
+    margin-right: calc(3rem * var(--tw-space-x-reverse));
+}
+
+.grid-cols-1 {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+
+/* 반응형 display 제어 */
+@media (min-width: 640px) {
+    .sm\:hidden {
+        display: none;
+    }
+
+    .sm\:block {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .md\:hidden {
+        display: none;
+    }
+
+    .md\:block {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:hidden {
+        display: none;
+    }
+
+    .lg\:block {
+        display: block;
+    }
+}
+
+@media (min-width: 1280px) {
+    .xl\:hidden {
+        display: none;
+    }
+
+    .xl\:block {
+        display: block;
+    }
+}
+
+@media (min-width: 1536px) {
+    .\\32xl\\:hidden {
+        display: none;
+    }
+
+    .\\32xl\\:block {
+        display: block;
+    }
+}
+
+/* Tailwind max-* 변형 대응 (보통 사용 빈도 높은 것들) */
+@media (max-width: 639.98px) {
+    .max-sm\:hidden {
+        display: none;
+    }
+
+    .max-sm\:block {
+        display: block;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .max-md\:hidden {
+        display: none;
+    }
+
+    .max-md\:block {
+        display: block;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .max-lg\:hidden {
+        display: none;
+    }
+
+    .max-lg\:block {
+        display: block;
+    }
+}
+
+@media (max-width: 1279.98px) {
+    .max-xl\:hidden {
+        display: none;
+    }
+
+    .max-xl\:block {
+        display: block;
+    }
+}
+
+@media (max-width: 1535.98px) {
+    .max-2xl\:hidden {
+        display: none;
+    }
+
+    .max-2xl\:block {
+        display: block;
+    }
+}
+
+/* #mobile-banner .banner-item {
+    flex: 0 0 100%;
+    display: flex;             
+    justify-content: center;  
+    align-items: center;      
+    text-align: center;       
+} */
+
+#mbanner-toggle {
+    transition: transform 0.3s ease-in-out;
+}
+
+.animate-scroll {
+    animation: scroll 30s linear infinite;
+}
+
+#side-menu {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media screen {
+    .certificate-box {
+        max-width: 794px;
+        aspect-ratio: 794 / 1123;
+        margin: 0 auto;
+        height: auto;
+    }
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+        /* 여백 더 줄임 */
+    }
+
+    body,
+    html {
+        width: 100% !important;
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 테이블 레이아웃 개선 - 높이 조정 제거 */
+    table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        table-layout: fixed !important;
+        font-size: 9px !important;
+        page-break-inside: auto !important;
+    }
+
+    th,
+    td {
+        border: 1px solid #ccc !important;
+        padding: 2px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        max-width: 100px !important;
+        /* 높이 관련 속성 제거 */
+    }
+
+    /* 테이블 헤더 설정 */
+    thead {
+        display: table-header-group !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    tr {
+        page-break-inside: avoid !important;
+        page-break-after: auto !important;
+    }
+
+
+    /* 가로 너비만 제어 - 높이는 그대로 유지 */
+    div {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        /* height 관련 속성 제거 */
+    }
+
+    /* 테이블 너비만 초기화 */
+    table {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 인쇄 영역 설정 - 높이 자동 유지 */
+    .printArea {
+        width: 100% !important;
+        display: flex; /* 내부 요소 정렬을 위해 flexbox 사용 */
+        justify-content: center; /* 가운데 정렬 */
+        align-items: center; /* 세로 가운데 정렬 (필요시) */
+        min-height: 100vh; /* 최소 높이를 뷰포트 높이로 설정하여 내용이 적어도 한 페이지를 채우도록 함 */
+        box-sizing: border-box; /* 패딩과 보더가 너비/높이에 포함되도록 */
+    }
+
+    /* 영수증 - 기존 높이 유지 및 미세 조정 */
+    .receipt-box {
+        width: 100% !important;
+        max-width: 700px !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+        page-break-inside: avoid !important;
+        transform: scale(0.85) !important;
+        /* 95%로 약간 축소하여 여백 확보 */
+        transform-origin: top center !important;
+    }
+
+    .receipt-box .grid-six>div:last-child {
+        display: none !important;
+    }
+
+
+
+    /* 이수증 - 특별히 높이 관련 속성 유지 (원본 값 중요) */
+    .certificate-box {
+        width: 794px !important;         /* A4 너비 */
+        height: 1123px !important;  
+        /* 약간 줄여서 맞춤 */
+        box-sizing: border-box !important;
+        margin: auto 0 !important;
+        page-break-inside: avoid !important;
+        aspect-ratio: auto !important;
+        transform: scale(0.90) !important;
+        overflow: hidden !important;     
+        /* 95%로 약간 축소하여 여백 확보 */
+        transform-origin: top center !important;
+    }
+
+    .certificate-box .line {
+        margin-top: 10px;
+    }
+    .certificate-box .last {
+        margin-top: 20px;
+    }
+    .certificate-box img {
+        width: 100% !important;
+        height: auto !important;
+        /* 높이를 자동으로 조정 */
+        object-fit: contain !important;
+        margin: 50px auto !important;
+        /* 여백 줄임 */
+        display: block !important;
+    }
+
+    .certificate-box .detail{
+        margin-left: 40px !important;
+    }    .certificate-box .detail{
+        margin-left: 40px !important;
+    }
+    .certificate-box .free {
+        margin-top: 50px;
+    }
+    .certificate-info {
+        margin-left: 40px !important;
+    }
+    .certificate-info.one {
+        margin-bottom: -10px !important;
+        font-size: 18px !important;
+    }
+    .certificate-info.two {
+        margin-bottom: -10px !important;
+        font-size: 18px !important;
+    }
+    .certificate-inner {
+        margin: 0 auto !important;
+        width: 750px !important;
+        position: relative !important;
+        padding-top: 180px !important;
+        line-height: 1.3 !important;
+        margin-top: 20px;
+    }
+
+    /* 원래 이수증 폰트 크기 유지하되 여백 조정 */
+    .certificate-box h2 {
+        margin-top: 100px !important;
+        /* 여백 줄임 */
+        font-size: 40px !important;
+        line-height: 1.5 !important;
+
+    }
+
+    .certificate-box h1 {
+        font-size: 50px !important;
+        margin-bottom: 20px !important;
+        line-height: 1.5 !important;
+    }
+
+    .certificate-box p {
+        font-size: 20px !important;
+        line-height: 2 !important;
+        /* 줄 간격 줄임 */
+    }
+
+    .certificate-box .certificate-info {
+        margin-bottom: 20px !important;
+        line-height: 1.7 !important;
+    }
+
+    .grid>div:last-of-type {
+        margin-bottom: 20px !important;
+    }
+
+    .certificate-box span {
+        font-size: 22px !important;
+        line-height: 2 !important;
+        /* 줄 간격 줄임 */
+        margin-bottom: 20px !important;
+        /* 여백 줄임 */
+    }
+
+    /* 버튼 및 불필요 요소 숨김 */
+    button,
+    .closeBasicDataBtn,
+    .closeAttendanceModal,
+    .closeNameTagModal,
+    #modalBackdrop,
+    .hidden {
+        display: none !important;
+    }
+
+    /* 색상 인쇄 보장 */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    /* 이수증/영수증 2개의 페이지로 나뉘지 않게 방지 */
+    .certificate-box,
+    .receipt-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    .attendance-box {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+}
+
