@@ -61,7 +61,7 @@
                                 id="dropdownMenu"
                                 class="my-div absolute right-[-14px] max-xl:top-[32px] w-[100%] w-[460px] bg-white z-10 xl:mt-1 bg-white border border-[2px] rounded-xl shadow-lg">
                                 <!-- 공통 스타일: grid 4col -->
-                                <li v-for="(item, idx) in bannerItems" :key="idx" class="px-4 py-2 hover:bg-[#E7F0FD] cursor-pointer sm:px-4">
+                                <li v-for="(item, idx) in bannerItems" :key="idx" class="px-4 py-2 hover:bg-primaryBg cursor-pointer sm:px-4">
                                     <NuxtLink :to="item.link">
                                         <div :class="item.user ? 'grid-cols-custom02' : 'grid-cols-no-user'">
                                             <span class="text-sm font-semibold col-span-1 whitespace-nowrap truncate ">
@@ -86,7 +86,7 @@
                         <button 
                             v-if="isLoggedIn"
                             @click="handleLogout" 
-                            class="text-sm max-lg:px-3 px-5 py-2.5 text-white bg-primaryPoint rounded-lg hover:bg-[#1E4799] transition lg:block hidden whitespace-nowrap">
+                            class="text-sm max-lg:px-3 px-5 py-2.5 text-white bg-primaryPoint rounded-lg hover:bg-primary500 transition lg:block hidden whitespace-nowrap">
                             로그아웃
                         </button>
                         <button @click="$router.back()"

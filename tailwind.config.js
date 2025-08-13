@@ -26,6 +26,7 @@ module.exports = {
         // primaryPoint: '#3D768F',
         // primaryPoint: '#A48800',
         // primaryPoint: '#F37A58',
+        primaryBgH: '#FFCDDD',
         primaryBg: '#FFE8EF',
       },
       screens: {

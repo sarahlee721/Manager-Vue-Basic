@@ -30,6 +30,27 @@
         </li>
         <li class="py-1">
             <NuxtLink
+                to="/guide"
+                id="guideLink"
+                :class="['mainLink flex gap-3 px-4 py-3 rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929]', { focused: isGuideMenuActive }]">
+                <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16 4H18C18.5304 4 19.0391 4.19901 19.4142 4.55324C19.7893 4.90748 20 5.38792 20 5.88889V19.1111C20 19.6121 19.7893 20.0925 19.4142 20.4468C19.0391 20.801 18.5304 21 18 21H6C5.46957 21 4.96086 20.801 4.58579 20.4468C4.21071 20.0925 4 19.6121 4 19.1111V5.88889C4 5.38792 4.21071 4.90748 4.58579 4.55324C4.96086 4.19901 5.46957 4 6 4H8"
+                        stroke="stroke-current" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path
+                        d="M8.25 3H15.75C15.8881 3 16 3.11193 16 3.25V5.75C16 5.88807 15.8881 6 15.75 6H8.25C8.11193 6 8 5.88807 8 5.75V3.25C8 3.11193 8.11193 3 8.25 3Z"
+                        stroke="stroke-current" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M7 11H17" stroke="stroke-current" stroke-width="2" stroke-linecap="round" />
+                    <path d="M7 15H17" stroke="stroke-current" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                공모요강
+            </NuxtLink>
+        </li>
+        <li class="py-1">
+            <NuxtLink
                 to="/proposer"
                 id="proposerLink"
                 :class="['mainLink flex gap-3 px-4 py-3 rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929]', { focused: isProposerMenuActive }]">
@@ -51,230 +72,43 @@
                 신청자
             </NuxtLink>
         </li>
-        <li class="py-1 relative group">
-            <!-- 연수 항목 -->
-            <a href="#" id="trainingLink"
-                :class="['mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] active:text-primaryPoint focus:text-primaryPoint', { focused: isTrainingMenuActive }]"
-                @click.prevent="toggleMenu('training')"
-                >
-                <span class="flex items-center gap-3 text-inherit">
-                    <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18.1791 3.48399C18.489 3.1741 18.9093 3 19.3476 3C19.7858 3 20.2061 3.1741 20.516 3.48399C20.8259 3.79388 21 4.21418 21 4.65243C21 5.09068 20.8259 5.51099 20.516 5.82088L13.1159 13.221L10 14L10.779 10.8841L18.1791 3.48399Z"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M7 17.1968H16" stroke="stroke-current" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path
-                            d="M10 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V12"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                    연수
-                </span>
-                <img src="/img/down-arrow.png" alt="Arrow"
-                    class="subIcon w-4 h-4 ml-2 transform transition-transform duration-300" 
-                    :class="{ 'rotate-180': activeMenuId === 'training' }" />
-            </a>
-            <!-- 서브 메뉴 (기본적으로 숨김) -->
-            <ul class="subUl bg-[#F9F9F9] px-2 mt-0 space-y-1 max-h-0   overflow-hidden transition-all duration-300 ease-in-out"
-                :class="{ 'open': activeMenuId === 'training' }">
-                <li>
-                    <NuxtLink
-                        to="/training/manage"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        연수관리
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/training/end"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        종료된 연수
-                    </NuxtLink>
-                </li>
-            </ul>
+        <li class="py-1 ">
+            <NuxtLink
+                to="/gallery"
+                id="galleryLink"
+                :class="['mainLink flex items-center gap-3 px-4 py-3 rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929]', { focused: isGalleryMenuActive }]">
+                <svg class="subIconSvg ml-0.5 stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.28613 0.5H15.7139C17.8047 0.5 19.5 2.19534 19.5 4.28613V15.7139C19.5 17.8047 17.8047 19.5 15.7139 19.5H4.28613C2.19534 19.5 0.5 17.8047 0.5 15.7139V4.28613C0.5 2.19534 2.19534 0.5 4.28613 0.5ZM4.42871 10.7861C3.32454 10.7861 2.51174 11.2548 1.96777 11.7334C1.69551 11.973 1.49393 12.2136 1.36035 12.3926C1.34122 12.4182 1.32286 12.442 1.30664 12.4648L1.21387 12.5957V15.7139C1.21387 17.4102 2.58983 18.7861 4.28613 18.7861H15.7139C17.4102 18.7861 18.7861 17.4102 18.7861 15.7139V14.2842L18.0371 14.7129C17.9533 14.7609 17.866 14.8091 17.7754 14.8574C16.7785 15.3894 15.3623 15.9287 13.7139 15.9287C11.4804 15.9285 9.98988 14.5315 8.66309 13.2578C7.29709 11.9465 6.11636 10.7862 4.42871 10.7861ZM4.28613 1.21387C2.58983 1.21387 1.21387 2.58983 1.21387 4.28613V11.3369L1.99316 10.8145C2.60112 10.4067 3.40991 10.0713 4.42871 10.0713C6.3581 10.0714 7.71978 11.3558 8.97852 12.5693C9.03867 12.6273 9.09874 12.6851 9.1582 12.7422C10.508 14.038 11.804 15.2137 13.7139 15.2139C15.2082 15.2139 16.5077 14.7247 17.4395 14.2275C17.9039 13.9797 18.2732 13.7317 18.5254 13.5469C18.546 13.5318 18.566 13.5171 18.585 13.5029L18.7861 13.3525V4.28613C18.7861 2.58983 17.4102 1.21387 15.7139 1.21387H4.28613ZM13.7139 5.07129C15.1733 5.07129 16.3572 6.25445 16.3574 7.71387C16.3574 9.17348 15.1735 10.3574 13.7139 10.3574C12.2545 10.3572 11.0713 9.17334 11.0713 7.71387C11.0715 6.25459 12.2546 5.07152 13.7139 5.07129ZM13.7139 5.78613C12.6491 5.78636 11.7864 6.64908 11.7861 7.71387C11.7861 8.77885 12.6489 9.64235 13.7139 9.64258C14.779 9.64258 15.6426 8.77899 15.6426 7.71387C15.6424 6.64894 14.7788 5.78613 13.7139 5.78613Z" stroke="stroke-current" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                갤러리
+            </NuxtLink>
         </li>
-        <li class="py-1 relative group">
-            <!-- 수강자관리 항목 -->
-            <a href="#" id="studentLink"
-                :class="['mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] active:text-primaryPoint focus:text-primaryPoint', { focused: isStudentMenuActive }]"
-                @click.prevent="toggleMenu('student')">
-                <span class="flex items-center gap-3 text-inherit">
-                    <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18 21V19C18 17.9391 17.5786 16.9217 16.8284 16.1716C16.0783 15.4214 15.0609 15 14 15H7C5.93913 15 4.92172 15.4214 4.17157 16.1716C3.42143 16.9217 3 17.9391 3 19V21"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M10.5 11C12.7091 11 14.5 9.20914 14.5 7C14.5 4.79086 12.7091 3 10.5 3C8.29086 3 6.5 4.79086 6.5 7C6.5 9.20914 8.29086 11 10.5 11Z"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M17.5 11.5L19 13L22 9" stroke="stroke-current" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    수강자
-                </span>
-                <img src="/img/down-arrow.png" alt="Arrow"
-                    class="subIcon w-4 h-4 ml-2 transform transition-transform duration-300" 
-                    :class="{ 'rotate-180': activeMenuId === 'student' }" />
-            </a>
-            <!-- 서브 메뉴 (기본적으로 숨김) -->
-            <ul class="subUl bg-[#F9F9F9] px-2 mt-0 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="{ 'open': activeMenuId === 'student' }">
-                <li>
-                    <NuxtLink
-                        to="/student"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        수강자 입금관리
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/student/record"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        과정 출석부
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/student/statistics"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active"
-                        >수강인원통계
-                    </NuxtLink>
-                </li>
-            </ul>
-        </li>
-        <li class="py-1 relative group">
-            <!-- 수료자 항목 -->
-            <a href="#" id="graduateLink"
-                :class="['mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] active:text-primaryPoint focus:text-primaryPoint', { focused: isGraduateMenuActive }]"
-                @click.prevent="toggleMenu('graduate')"
-                >
-                <span class="flex items-center gap-3 text-inherit">
-                    <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M8.21 14.0088L7 22L12 19.3684L17 22L15.79 14" stroke="stroke-current"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    수료자
-                </span>
-                <img src="/img/down-arrow.png" alt="Arrow"
-                    class="subIcon w-4 h-4 ml-2 transform transition-transform duration-300"
-                    :class="{ 'rotate-180': activeMenuId === 'graduate' }">
-            </a>
-            <!-- 서브 메뉴 (기본적으로 숨김) -->
-            <ul
-                class="subUl bg-[#F9F9F9] px-2 mt-0 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="{ 'open': activeMenuId === 'graduate' }">
-                <li>
-                    <NuxtLink
-                        to="/graduate"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active" >
-                        수료자 관리
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/graduate/report"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        수료자 보고서
-                    </NuxtLink>
-                </li>
-            </ul>
-        </li> 
-        <!-- <li class="py-1 relative group "> -->
-            <!-- 자격관리 항목 -->
-            <!-- <a href="#" id="licenseLink"
-                class="mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] focus:text-primaryPoint active:text-primaryPoint"
-                onclick="toggleSubMenu(event)">
-                <span class="flex items-center gap-3 text-inherit">
-                    <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 11L12 14L21 5" stroke="stroke-current" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path
-                            d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    자격관리
-                </span>
-                <img src="/img/down-arrow.png" alt="Arrow"
-                    class="subIcon w-4 h-4 ml-2 transform transition-transform duration-300" />
-            </a> -->
-            <!-- 서브 메뉴 (기본적으로 숨김) -->
-            <!-- <ul
-                class="subUl bg-[#F9F9F9] px-2 mt-0 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                <li>
-                    <a href="license-regist.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">자격등록</a>
-                </li>
-                <li>
-                    <a href="license-pay.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">자격입금관리</a>
-                </li>
-                <li>
-                    <a href="license-record.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">자격출석부</a>
-                </li>
-                <li>
-                    <a href="license-notice.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">합격공지</a>
-                </li>
-                <li>
-                    <a href="license-check.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">자격증조회</a>
-                </li>
-            </ul>
-        </li> -->
+
         <li class="py-1 relative group ">
           <!-- 관리자 게시판 항목 -->
-          <a href="#" id="adminLink"
-              :class="['mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] active:text-primaryPoint focus:text-primaryPoint', { focused: isAdminMenuActive }]"
-              @click.prevent="toggleMenu('admin')">
+          <a href="#" id="boardLink"
+              :class="['mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] active:text-primaryPoint focus:text-primaryPoint', { focused: isBoardMenuActive }]"
+              @click.prevent="toggleMenu('board')">
               <span class="flex items-center gap-3 text-inherit">
-                  <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                          d="M16 4H18C18.5304 4 19.0391 4.19901 19.4142 4.55324C19.7893 4.90748 20 5.38792 20 5.88889V19.1111C20 19.6121 19.7893 20.0925 19.4142 20.4468C19.0391 20.801 18.5304 21 18 21H6C5.46957 21 4.96086 20.801 4.58579 20.4468C4.21071 20.0925 4 19.6121 4 19.1111V5.88889C4 5.38792 4.21071 4.90748 4.58579 4.55324C4.96086 4.19901 5.46957 4 6 4H8"
-                          stroke="stroke-current" stroke-width="2" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      <path
-                          d="M8.25 3H15.75C15.8881 3 16 3.11193 16 3.25V5.75C16 5.88807 15.8881 6 15.75 6H8.25C8.11193 6 8 5.88807 8 5.75V3.25C8 3.11193 8.11193 3 8.25 3Z"
-                          stroke="stroke-current" stroke-width="2" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      <path d="M7 11H17" stroke="stroke-current" stroke-width="2" stroke-linecap="round" />
-                      <path d="M7 15H17" stroke="stroke-current" stroke-width="2" stroke-linecap="round" />
-                  </svg>
-                  게시판 관리
+                <svg class="subIconSvg stroke-current ml-0.5" width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.6277 10.4918C18.6277 10.1322 18.4848 9.78732 18.2306 9.53302C17.9763 9.27873 17.6314 9.13586 17.2717 9.13586H13.2038V10.4918H6.42391V9.13586H2.35598C1.99635 9.13586 1.65145 9.27873 1.39716 9.53302C1.14286 9.78732 1 10.1322 1 10.4918V14.5598C1 14.9194 1.14286 15.2643 1.39716 15.5186C1.65145 15.7729 1.99635 15.9158 2.35598 15.9158H17.2717C17.6314 15.9158 17.9763 15.7729 18.2306 15.5186C18.4848 15.2643 18.6277 14.9194 18.6277 14.5598V10.4918Z" stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2.35597 5.06787H17.2717" stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2.35597 1H17.2717" stroke="stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                게시판 관리
               </span>
               <img src="/img/down-arrow.png" alt="Arrow"
                   class="subIcon w-4 h-4 ml-2 transform transition-transform duration-300" 
-                  :class="{ 'rotate-180': activeMenuId === 'admin' }" />
+                  :class="{ 'rotate-180': activeMenuId === 'board' }" />
           </a>
           <!-- 서브 메뉴 (기본적으로 숨김) -->
           <ul
               class="subUl bg-[#F9F9F9] px-2 mt-0 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-              :class="{ 'open': activeMenuId === 'admin' }">
+              :class="{ 'open': activeMenuId === 'board' }">
               <li>
                   <NuxtLink
-                      to="/admin/notice"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
+                      to="/board/notice"
+                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg"
                       active-class="sub-link-active"
                       exact-active-class="sub-link-exact-active">
                       공지사항
@@ -282,120 +116,15 @@
               </li> 
               <li>
                   <NuxtLink
-                      to="/admin/faq"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
+                      to="/board/faq"
+                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg"
                       active-class="sub-link-active"
                       exact-active-class="sub-link-exact-active">
-                      자주묻는 질문
+                      FAQ
                   </NuxtLink>
               </li>
-              <li>
-                  <NuxtLink
-                      to="/admin/shoes"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      댄스화 주문관리
-                  </NuxtLink>
-              </li>
-              <li>
-                  <NuxtLink
-                      to="/admin/teacher"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      강사소개
-                  </NuxtLink>
-              </li>
-              <li>
-                  <NuxtLink
-                      to="/admin/location"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      연수장소
-                  </NuxtLink>
-              </li>
-              <li>
-                  <NuxtLink
-                      to="/admin/trainsch"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      연수일정
-                  </NuxtLink>
-              </li>
-              <li>
-                  <NuxtLink
-                      to="/admin/traindata"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      연수자료실
-                  </NuxtLink>
-              </li>
-              
-              <!-- <li>
-                  <NuxtLink
-                      to="/admin/qna"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      Q&A
-                  </NuxtLink>
-              </li> -->
-              
-              <!-- <li>
-                  <NuxtLink
-                      to="/admin/job"
-                      class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]"
-                      active-class="sub-link-active"
-                      exact-active-class="sub-link-exact-active">
-                      구인・구직
-                  </NuxtLink>
-              </li> -->
           </ul>
         </li>
-        <!-- <li class="py-1 relative group "> -->
-            <!-- 문자관리 항목 -->
-            <!-- <a href="#" id="snsLink"
-                class="mainLink flex justify-between items-center px-4 py-3 block rounded-lg text-[#727272] hover:bg-primaryBg hover:text-[#292929] active:text-primaryPoint focus:text-primaryPoint"
-                onclick="toggleSubMenu(event)">
-                <span class="flex items-center gap-3 text-inherit">
-                    <svg class="subIconSvg stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4 5H20C20.5477 5 21 5.45228 21 6V18C21 18.5477 20.5477 19 20 19H4C3.45228 19 3 18.5477 3 18V6C3 5.45228 3.45228 5 4 5Z"
-                            stroke="stroke-current" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M21 6L12 13L3 6" stroke="stroke-current" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                    문자관리
-                </span>
-                <img src="/img/down-arrow.png" alt="Arrow"
-                    class="subIcon w-4 h-4 ml-2 transform transition-transform duration-300" />
-            </a> -->
-            <!-- 서브 메뉴 (기본적으로 숨김) -->
-            <!-- <ul
-                class="subUl bg-[#F9F9F9] px-2 mt-0 space-y-1 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                <li>
-                    <a href="sns-group.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">문자
-                        그룹</a>
-                </li>
-                <li>
-                    <a href="sns-send.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">문자
-                        보내기</a>
-                </li>
-                <li>
-                    <a href="sns-log.html"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]">문자
-                        기록</a>
-                </li>
-            </ul> -->
-        <!-- </li> -->
         <li class="py-1 relative group">
             <!-- 설정 항목 -->
             <a href="#" id="siteLink"
@@ -423,38 +152,20 @@
                 :class="{ 'open': activeMenuId === 'site' }">
                 <li>
                     <NuxtLink
-                        to="/site/slider"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        슬라이드 관리자
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/site/photo"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        이미지 콘텐츠 관리
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/site/popup"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        팝업관리
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
                         to="/site/video"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
+                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg"
                         active-class="sub-link-active"
                         exact-active-class="sub-link-exact-active">
-                        영상관리
+                        홍보영상
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink
+                        to="/site/sponsor"
+                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg"
+                        active-class="sub-link-active"
+                        exact-active-class="sub-link-exact-active">
+                        후원사
                     </NuxtLink>
                 </li>
             </ul>
@@ -487,26 +198,8 @@
                 :class="{ 'open': activeMenuId === 'setting' }">
                 <li>
                     <NuxtLink
-                        to="/setting/chats"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active" >
-                        운영자 소통
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
-                        to="/setting/log"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
-                        active-class="sub-link-active"
-                        exact-active-class="sub-link-exact-active">
-                        로그인 로그
-                    </NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink
                         to="/setting/role"
-                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg focus:text-[#1E4799]]"
+                        class="block px-8 py-3 rounded-lg text-[#727272] text-sm hover:bg-primaryBg"
                         active-class="sub-link-active"
                         exact-active-class="sub-link-exact-active">
                         관리자권한 관리
@@ -566,7 +259,15 @@ const isDashboardMenuActive = computed(() => {
         return route.path === '/dashboard' || route.path.startsWith('/dashboard/');
 });
 
-// '회원' 메뉴를 위한 활성화
+// '공모요강' 메뉴를 위한 활성화
+const isGuideMenuActive = computed(() => {
+    if (activeMenuId.value) {
+        return activeMenuId.value === 'guide';
+    }
+    return route.path.startsWith('/guide');
+});
+
+// '신청자' 메뉴를 위한 활성화
 const isProposerMenuActive = computed(() => {
     if (activeMenuId.value) {
         return activeMenuId.value === 'proposer';
@@ -574,36 +275,21 @@ const isProposerMenuActive = computed(() => {
     return route.path.startsWith('/proposer');
 });
 
-// '연수' 메뉴를 위한 활성화 
-const isTrainingMenuActive = computed(() => {
+// '공모요강' 메뉴를 위한 활성화
+const isGalleryMenuActive = computed(() => {
     if (activeMenuId.value) {
-        return activeMenuId.value === 'training';
+        return activeMenuId.value === 'gallery';
     }
-    return route.path.startsWith('/training');
+    return route.path.startsWith('/gallery');
 });
 
-// '수강자' 메뉴를 위한 활성화 
-const isStudentMenuActive = computed(() => {
-    if (activeMenuId.value) {
-        return activeMenuId.value === 'student';
-    }
-    return route.path.startsWith('/student');
-});
-
-// '수료자' 메뉴를 위한 활성화 
-const isGraduateMenuActive = computed(() => {
-    if (activeMenuId.value) {
-        return activeMenuId.value === 'graduate';
-    }
-    return route.path.startsWith('/graduate');
-});
 
 // '게시판 관리' 메뉴를 위한 활성화 
-const isAdminMenuActive = computed(() => {
+const isBoardMenuActive = computed(() => {
     if (activeMenuId.value) {
-        return activeMenuId.value === 'admin';
+        return activeMenuId.value === 'board';
     }
-    return route.path.startsWith('/admin');
+    return route.path.startsWith('/board');
 });
 
 // '사이트 관리' 메뉴를 위한 활성화 
@@ -625,18 +311,16 @@ const isSettingMenuActive = computed(() => {
 
 // --- 라우트 변경 감지 및 자동 메뉴 열림 처리 ---
 watch(() => route.path, (newPath) => {
-    if (newPath.startsWith('/training')) {
-        activeMenuId.value = 'training';
-    } else if (newPath.startsWith('/proposer')) {
+    if (newPath.startsWith('/proposer')) {
         activeMenuId.value = 'proposer';
+    } else if (newPath.startsWith('/guide')) {
+      activeMenuId.value = 'guide';
+    } else if (newPath.startsWith('/gallery')) {
+      activeMenuId.value = 'gallery';
     } else if (newPath.startsWith('/dashboard')) {
         activeMenuId.value = 'dashboard';
-    } else if (newPath.startsWith('/student')) {
-        activeMenuId.value = 'student';
-    } else if (newPath.startsWith('/graduate')) {
-        activeMenuId.value = 'graduate';
-    } else if (newPath.startsWith('/admin')) {
-        activeMenuId.value = 'admin';
+    } else if (newPath.startsWith('/board')) {
+        activeMenuId.value = 'board';
     } else if (newPath.startsWith('/site')) {
         activeMenuId.value = 'site';
     } else if (newPath.startsWith('/setting')) {
@@ -666,7 +350,13 @@ watch(() => route.path, (newPath) => {
       color: var(--color-primaryPoint);;
     }
     .mainLink.focused .subIconSvg {
-      stroke: var(--color-primaryPoint);;
+      stroke: var(--color-primaryPoint);
+    }
+    .mainLink:hover {
+      color: var(--color-primaryPoint);
+    }
+    .mainLink:hover .subIconSvg{
+      stroke: var(--color-primaryPoint);
     }
     .mainLink .subIconSvg {
       /* SVG의 stroke를 직접 CSS 변수로 설정 */
@@ -680,8 +370,8 @@ watch(() => route.path, (newPath) => {
     /* NuxtLink의 활성화된 클래스에 대한 스타일 */
     /* 현재 라우트와 정확히 일치할 때 적용 */
     .sub-link-exact-active {
-      color: var(--color-primaryPoint);; /* 서브메뉴 글자색 */
-      background-color: #EDF3FF;
+      color: var(--color-primaryPoint); /* 서브메뉴 글자색 */
+      background-color:  var(--color-primaryBg);
     }
     /* 현재 라우트의 상위 경로일 때 적용 (선택 사항) */
     /* 예를 들어, /train/manage 에 있을 때 /train 링크도 활성화되게 할 경우 */
